@@ -304,6 +304,7 @@ dependencies = [
     { name = "langchain-openai" },
     { name = "openai" },
     { name = "python-dotenv" },
+    { name = "youtube-transcript-api" },
 ]
 
 [package.dev-dependencies]
@@ -323,6 +324,7 @@ requires-dist = [
     { name = "langchain-openai", specifier = ">=1.2.1" },
     { name = "openai", specifier = ">=2.33.0" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
+    { name = "youtube-transcript-api", specifier = ">=1.2.4" },
 ]
 
 [package.metadata.requires-dev]
