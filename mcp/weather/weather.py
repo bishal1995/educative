@@ -16,8 +16,6 @@ mcp = FastMCP()
 NWS_API_BASE = "https://api.weather.gov"
 USER_AGENT = "weather-app/1.0"
 
-
-
 async def make_nws_request(url: str) -> dict[str, Any]:
     """Helper function to make requests to the NWS API."""
     headers = {"User-Agent": USER_AGENT, "Accept": "application/geo+json"}
@@ -112,10 +110,6 @@ if __name__ == "__main__":
     main()
 
 
-
-
-
-
 """
 Add this config in claude_desktop_config.json in "mcpServers" section
 to enable the tool in Claude Desktop:
@@ -124,7 +118,7 @@ to enable the tool in Claude Desktop:
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/bishal/work/educative/become_a_llm_engineer/mcp/weather",
+        "/<path_to_project>/mcp/weather",
         "run",
         "weather.py"
       ]
