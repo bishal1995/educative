@@ -27,7 +27,6 @@ async def make_nws_request(url: str) -> dict[str, Any]:
         except httpx.RequestError as exc:
             print(f"An error occurred while requesting {exc.request.url!r}.")
             return None
-        
 
 def format_alert( feature: dict[str, Any]) -> str:
     """Format a single alert feature into a readable string."""
@@ -53,7 +52,6 @@ Temperature: {forecast.get("temperature", "Unknown")} {forecast.get("temperature
 Wind: {forecast.get("windSpeed", "Unknown")} {forecast.get("windDirection", "Unknown")}\n
     """)
     return "\n===---===\n".join(forecasts)
-
 
 @mcp.tool()
 async def get_alerts(city: str) -> str:
@@ -101,6 +99,32 @@ async def get_forecast( latitude: float, longitude: float) -> str:
         logger.error(f"Error fetching forecast: {e}")
         return f"An error occurred while fetching the forecast with error : {str(e)}"
 
+@mcp.prompt()
+def compare_weather_prompt(city1: str, city2: str) -> str:
+    """Compare the weather in two cities.
+    
+    Args:
+        city1 (str): The first city to compare.
+        city2 (str): The second city to compare.
+    """
+    comparision_prompt = f"""
+    You are acting as a helpful weather analyst. Your goal is to provide a clear and 
+    easy-to-read comparison of the weather in two different locations for a user.
+
+    Compare the weather in {city1} and {city2}. 
+
+    Use this following steps:
+    1. First get correct code for both cities (e.g., TX for Texas) and then use the city code with the
+    get_alerts tool to fetch the weather alerts for both cities.
+    2. Get the forecast for both cities using the get_forecast tool, using the correct latitude and 
+    longitude for each city.
+    3. Summarize the comparison of the weather in both cities, highlighting any significant differences
+    or similarities in the alerts and forecasts.
+    4. Present the comparison in a structured format, like a markdown table or a clear bulleted list, 
+    to make it easy for the user to understand at a glance.
+    """
+    return comparision_prompt
+
 
 def main():
     mcp.run(transport="stdio")
@@ -131,113 +155,3 @@ Use this follwoing prompt to test the tool in Claude Desktop:
 
 2. What’s the weather in Texas ? Use the local_weather tool. Use TX as code for Texas.
 """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
