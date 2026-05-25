@@ -133,25 +133,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-"""
-Add this config in claude_desktop_config.json in "mcpServers" section
-to enable the tool in Claude Desktop:
-
-    "local_weather": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "/<path_to_project>/mcp/weather",
-        "run",
-        "weather.py"
-      ]
-    }   
-
-Use this follwoing prompt to test the tool in Claude Desktop:
-
-1. What’s the weather forecast in Texas ? Use the local_weather tool. Use TX as 
-    code for Texas.  and also provide its lattitude and longitude
-
-2. What’s the weather in Texas ? Use the local_weather tool. Use TX as code for Texas.
-"""
