@@ -11,4 +11,4 @@ wheels/
 .env
 
 # ChromaDB directory
-mcp/rag_mcp/files/chroma_db/*
+mcp/rag_mcp/files/chroma_db/
