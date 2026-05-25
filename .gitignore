@@ -9,3 +9,6 @@ wheels/
 # Virtual environments
 .venv
 .env
+
+# ChromaDB directory
+mcp/rag_mcp/files/chroma_db/*
